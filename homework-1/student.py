@@ -50,7 +50,7 @@ class CFGStudent(Student):
               f"Age: {self.age}\n"
               f"Student ID: {self.id}\n"
               f"Specialisation: {self.specialisation}\n"
-              f"Subjects: {', '.join(self.subjects)}\n"
+              f"Subjects: {self.subjects}\n"
               f"Average: {self.average}\n")
 
 

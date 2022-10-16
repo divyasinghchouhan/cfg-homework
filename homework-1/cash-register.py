@@ -18,18 +18,18 @@ For example, method add_item probably accepts some kind of an item?..
 class CashRegister:
 
     def __init__(self):
-
+        # initializing total_items to be an empty dictionary
         self.total_items = {} # {'item': 'price'}
         self.total_price = 0
         self.discount = 0
 
-    def add_item(self, name, price):
+    def add_item(self, name, price):   # added arguments for item name and price
         self.total_items[name.capitalize()] = price
         self.total_price += price
 
         print('{:<20} {:<10.2f}'.format(name.capitalize(), price))
 
-    def remove_item(self, name):
+    def remove_item(self, name):       # method to remove an item from the register
         try:
             removed = self.total_items.pop(name.capitalize())
         except KeyError:
@@ -40,10 +40,10 @@ class CashRegister:
             price_item_cancelled = f"–{removed:.2f}"
             print('{:<18} {:<10}'.format(item_cancelled, price_item_cancelled))
 
-    def apply_discount(self, discount_percentage):
+    def apply_discount(self, discount_percentage):    # method to apply a discount to the register, given the discount percentage
         self.discount = self.total_price * discount_percentage / 100
 
-    def get_total(self):
+    def get_total(self):          # method to get the total price of the register after discounts
         print('-------------------------------------------')
 
         # printing the sub total, discount and final total
@@ -52,7 +52,7 @@ class CashRegister:
         print('-------------------------------------------')
         print('{:<20} £{:<10.2f}'.format('Final Price :', self.total_price - self.discount))
 
-    def show_items(self):
+    def show_items(self):        # method to show the items in the register
         for item in self.total_items:
             print('{:<20} {:<10.2f}'.format(item, self.total_items.get(item)))
 
@@ -63,7 +63,7 @@ class CashRegister:
         print('-------------------------------------------')
         print('{:<20} £{:<10.2f}'.format('Final', self.get_total()))
 
-    def reset_register(self):
+    def reset_register(self):            # method to reset the register
         self.total_items = {}
         self.total_price = 0
         self.discount = 0
